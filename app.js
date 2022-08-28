@@ -25,18 +25,9 @@ server.post("/tweets", (req, res) => {
     const tweet = req.body;
     tweets.push({ ...backUp, ...tweet });
     res.send("ok");
-
-
 })
 
-server.get("/tweets", (req, res) => {
-    if (tweets.length <= 10) {
-        res.send(tweets)
-    } else {
-        const tweetsSlice = tweets.slice(tweets.length - 10, tweets.length)
-        res.send(tweetsSlice);
-    }
-})
+
 
 server.listen(port, () => {
     console.log(`Listen on port : ${port}`)
