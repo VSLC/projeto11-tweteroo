@@ -29,10 +29,10 @@ server.post("/tweets", (req, res) => {
 
 server.get("/tweets", (req, res) => {
     if (tweets.length <= 10) {
-        res.send(tweets.reverse())
+        res.send(tweets.slice(0).reverse())
     } else {
         const tweetsSlice = tweets.slice(tweets.length - 10, tweets.length)
-        res.send(tweetsSlice.reverse());
+        res.send(tweetsSlice.slice(0).reverse());
     }
 })
 
